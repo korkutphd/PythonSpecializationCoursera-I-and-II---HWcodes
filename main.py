@@ -1,3 +1,6 @@
+# It calculates the weekly pay by "taking hours" and "rate/hour" as input.
+# If hours>40, "rate/hour" increases by 1.5 times.
+
 def checkif_numericinput(param):
     try:
         fval = float(param)
