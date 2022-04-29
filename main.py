@@ -1,35 +1,39 @@
-# It calculates the weekly pay by "taking hours" and "rate/hour" as input.
-# If hours>40, "rate/hour" increases by 1.5 times.
-
 def checkif_numericinput(param):
     try:
-        fval = float(param)
+        fval = int(param)
         return fval
     except:
-        print('Please enter numeric input')
-        exit()
-
-def computepay(h, r):
-    h1 = checkif_numericinput(h)
-    r1 = checkif_numericinput(r)
-
-    if h1 <= 40:
-        pay = h1 * r1
-    else:
-        pay = (h1 - 40) * (r1 * 1.5) + (40 * r1)
-    return pay
-
-hrs = input("Enter Hours:")
-rate = input("Enter Rate:")
-
-p = computepay(hrs, rate)
-print("Pay", p)
+        print('Invalid input')
 
 
+largest = None
+smallest = None
 
+while True:
 
+    num = input("Enter an integer numer number: ")
+    if num == "done":
+        break
+    r1 = checkif_numericinput(num)
 
+    ###### asking for numeric input continuously if you don't enter numeric input
+    while r1 is None:
+        num = input("Enter an integer numer number: ")
+        if num == "done":
+            break
+        r1 = checkif_numericinput(num)
+    if num == "done":
+        break
+    ############################################
 
+    if smallest is None:
+        largest = r1
+        smallest = r1
 
+    if r1 < smallest:
+        smallest = r1
+    if r1 > largest:
+        largest = r1
 
-
+print("Maximum is", largest)
+print("Minimum is", smallest)
